@@ -1,0 +1,15 @@
+print_1p("This is a command running from a txt")
+
+Char1 "Moverse a la izquierda y luego derecha." print_1p("Start Moving"), [wait]moveCharDemo(left), [wait]moveCharDemo(right), print_1p("Done Moving")
+
+Char1 "Moverse a la izquierda" moveCharDemo(left)
+
+Char1 "Moverse a la derecha" moveCharDemo(right)
+
+2B as ??? "Todo lo que vive esta diseñado para morir.{c} Estamos perpetuamente atrapados...{a} En un espiral sin fin de vida y muerte."
+
+A2 as ??? at 1:0 "¿Es esto una maldicion? {wa 1}¿O algun tipo de castigo?"
+
+9S at 0.5:0.5 as Boy "A veces pienso acerca del dios que nos bendijo con este criptico acertijo... {wa 1} Y me pregunto si tendremos algun dia la oportunidad de asesinarlo."
+
+2B as Girl [0:Angle1, 1:happy] at 0 "Tal vez asi sea."
