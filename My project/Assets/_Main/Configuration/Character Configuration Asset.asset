@@ -34,3 +34,24 @@ MonoBehaviour:
     dialogueColor: {r: 0.7152184, g: 0.7146226, b: 0.9528302, a: 1}
     nameFont: {fileID: 11400000, guid: a6a9963a494a04c47bfb712ccfd23da3, type: 2}
     dialogueFont: {fileID: 11400000, guid: d22ea559779c55a4cbbc1aae11309bf6, type: 2}
+  - name: Female Student 2
+    alias: Fem
+    characterType: 1
+    nameColor: {r: 0.585664, g: 0.50284797, b: 0.9433962, a: 1}
+    dialogueColor: {r: 0.7152184, g: 0.7146226, b: 0.9528302, a: 1}
+    nameFont: {fileID: 11400000, guid: a6a9963a494a04c47bfb712ccfd23da3, type: 2}
+    dialogueFont: {fileID: 11400000, guid: d22ea559779c55a4cbbc1aae11309bf6, type: 2}
+  - name: Raelin
+    alias: R
+    characterType: 2
+    nameColor: {r: 0.7311321, g: 1, b: 0.7520941, a: 1}
+    dialogueColor: {r: 0.9009434, g: 1, b: 0.9025943, a: 1}
+    nameFont: {fileID: 11400000, guid: a6a9963a494a04c47bfb712ccfd23da3, type: 2}
+    dialogueFont: {fileID: 11400000, guid: d22ea559779c55a4cbbc1aae11309bf6, type: 2}
+  - name: Generic
+    alias: G
+    characterType: 2
+    nameColor: {r: 0.7311321, g: 1, b: 0.7520941, a: 1}
+    dialogueColor: {r: 0.9009434, g: 1, b: 0.9025943, a: 1}
+    nameFont: {fileID: 11400000, guid: a6a9963a494a04c47bfb712ccfd23da3, type: 2}
+    dialogueFont: {fileID: 11400000, guid: d22ea559779c55a4cbbc1aae11309bf6, type: 2}
