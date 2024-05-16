@@ -31,6 +31,13 @@ public class TestExpresions : MonoBehaviour
             Raelin.TransitionSprite(Raelin.GetSprite("Raelin_7"),1);
             Raelin.TransitionSprite(Raelin.GetSprite("Raelin_2"));
 
+            yield return Raelin.TransitionColor(Color.red, speed: 0.3f);
+            yield return Raelin.TransitionColor(Color.blue);
+            yield return Raelin.TransitionColor(Color.yellow);
+            yield return Raelin.TransitionColor(Color.white);
+
+
+
            yield return null;
     
 

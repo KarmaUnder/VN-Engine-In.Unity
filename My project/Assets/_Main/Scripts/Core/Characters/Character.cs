@@ -18,12 +18,15 @@ namespace CHARACTERS
         public CharacterConfigData config;
         public DialogueSystem dialogueSystem => DialogueSystem.instance;
         public Character_Manager manager => Character_Manager.instance;
+        public Color color {get; protected set;} = Color.white;
 
         protected Coroutine co_revealing, co_hiding;
         protected Coroutine co_moving;
+        protected Coroutine co_changingColor;
         public bool isRevealing => co_revealing!=null;
         public bool isHiding => co_hiding !=null;
         public bool isMoving => co_moving != null;
+        public bool isChangingColor => co_changingColor!=null;
         public virtual bool isVisible {get; set;}
 
         public Animator animator;
@@ -110,6 +113,28 @@ namespace CHARACTERS
             return (minAnchorTarget, maxAnchorTarget);
         }
 
+        public virtual void SetColor(Color color)
+        {
+            this.color = color;
+        }
+
+        public Coroutine TransitionColor(Color color, float speed = 1)
+        {
+            this.color = color;
+
+            if(isChangingColor)
+                manager.StopCoroutine(co_changingColor);
+
+            co_changingColor= manager.StartCoroutine(ChangingColor(color, speed));
+
+            return co_changingColor;
+        }
+
+        public virtual IEnumerator ChangingColor(Color color, float speed)
+        {
+            Debug.Log("Color changing is not posible on this character type");
+            yield return null;
+        }
         public virtual Coroutine MoveToPosition(Vector2 position, float speed = 2f, bool smooth = false)
         {
             if(root == null)
