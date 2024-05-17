@@ -92,9 +92,11 @@ public Coroutine TransitionSprite(Sprite sprite, int layer = 0, float speed = 1)
         public override void SetColor(Color color)
         {
             base.SetColor(color);
+            color = displayColor;
 
             foreach(CharacterSpriteLayer layer in layers)
             {
+                layer.StopChangingColor();
                 layer.SetColor(color);
             }
         }
@@ -129,5 +131,23 @@ public Coroutine TransitionSprite(Sprite sprite, int layer = 0, float speed = 1)
             co_revealing = null;
             co_hiding = null;
         }
+
+        public override IEnumerator Highlighting(bool highlight, float speedMultiplier)
+        {
+            Color targetColor = displayColor;
+            foreach(CharacterSpriteLayer layer in layers)
+            {
+                layer.TransitionColor(targetColor, speedMultiplier);
+            }
+            yield return null;
+
+            while(layers.Any(l => l.isChangingColor))
+            {
+                yield return null;
+            }
+            co_highlighting = null;
+        }
+
+        
     }
 }

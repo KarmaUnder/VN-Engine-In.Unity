@@ -12,6 +12,8 @@ namespace CHARACTERS
 {
     public abstract class Character
     {
+        private const float UNHIGHLIGHTED_DARKEN_STRENGHT = 0.65f;
+
         public string name = "";
         public string displayName= "";
         public RectTransform root = null;
@@ -19,10 +21,18 @@ namespace CHARACTERS
         public DialogueSystem dialogueSystem => DialogueSystem.instance;
         public Character_Manager manager => Character_Manager.instance;
         public Color color {get; protected set;} = Color.white;
-
+        protected Color displayColor => highlighted ? highlightedColor : unhighlightedColor;
+        protected Color highlightedColor => color;
+        protected Color unhighlightedColor => new Color(color.r * UNHIGHLIGHTED_DARKEN_STRENGHT, color.g * UNHIGHLIGHTED_DARKEN_STRENGHT, color.b * UNHIGHLIGHTED_DARKEN_STRENGHT, color.a);
+        public bool highlighted {get; protected set;} = true;
         protected Coroutine co_revealing, co_hiding;
         protected Coroutine co_moving;
         protected Coroutine co_changingColor;
+        protected Coroutine co_highlighting;
+
+        public bool isHighlighting => (highlighted && co_highlighting !=null);
+        public bool isUnHighlighting => (!highlighted && co_highlighting !=null);
+
         public bool isRevealing => co_revealing!=null;
         public bool isHiding => co_hiding !=null;
         public bool isMoving => co_moving != null;
@@ -125,9 +135,40 @@ namespace CHARACTERS
             if(isChangingColor)
                 manager.StopCoroutine(co_changingColor);
 
-            co_changingColor= manager.StartCoroutine(ChangingColor(color, speed));
+            co_changingColor= manager.StartCoroutine(ChangingColor(displayColor, speed));
 
             return co_changingColor;
+        }
+
+        public Coroutine Highlight(float speed = 1f)
+        {
+            if(isHighlighting)
+                return co_highlighting;
+            if(isUnHighlighting)
+                manager.StopCoroutine(co_highlighting);
+
+            highlighted = true;
+            co_highlighting = manager.StartCoroutine(Highlighting(highlighted, speed));
+
+            return co_highlighting;
+        }
+        public Coroutine UnHighlight(float speed = 1f)
+        {
+            if(isUnHighlighting)
+                return co_highlighting;
+            if(isHighlighting)
+                manager.StopCoroutine(co_highlighting);
+
+            highlighted = false;
+            co_highlighting = manager.StartCoroutine(Highlighting(highlighted,speed));
+
+            return co_highlighting;
+        }
+
+        public virtual IEnumerator Highlighting(bool highlight, float speedMultiplier)
+        {
+            Debug.Log("Highlighting is not avaliable for text characters");
+            yield return null;
         }
 
         public virtual IEnumerator ChangingColor(Color color, float speed)

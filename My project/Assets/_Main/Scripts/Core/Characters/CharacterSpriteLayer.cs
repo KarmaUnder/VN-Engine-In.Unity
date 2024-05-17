@@ -161,6 +161,15 @@ private IEnumerator ChangingColor(Color color, float speedMultiplier)
     co_changingColor = null;
 }
 
+public void StopChangingColor()
+        {
+            if(!isChangingColor)
+                return;
+            character_Manager.StopCoroutine(co_changingColor);
+
+            co_changingColor = null;
+        }
+
 }
 
 }
