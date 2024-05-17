@@ -148,6 +148,23 @@ public Coroutine TransitionSprite(Sprite sprite, int layer = 0, float speed = 1)
             co_highlighting = null;
         }
 
-        
+        public override IEnumerator FaceDirection(bool faceLeft, float speedMultiplier, bool immediate)
+        {
+            foreach(CharacterSpriteLayer layer in layers)
+            {
+                if(faceLeft)
+                    layer.FaceLeft(speedMultiplier, immediate);
+                else
+                    layer.FaceRight(speedMultiplier, immediate);
+            }
+            yield return null;
+
+            while(layers.Any(l => l.isFlippling))
+                yield return null;
+
+            co_flipping = null;
+        }
+
+
     }
 }

@@ -42,7 +42,7 @@ public class TestExpresions : MonoBehaviour
 
             Mage.UnHighlight();
             Raelin.Highlight();
-
+            Raelin.Flip(immediate: true);
             yield return Raelin.Say("Ok, {a}Im gonna try");
 
 
@@ -52,6 +52,8 @@ public class TestExpresions : MonoBehaviour
             yield return Raelin.Say("What do you think about that?");
 
             yield return new WaitForSeconds(1);
+            Raelin.Flip(0.3f);
+
 
             yield return Raelin.TransitionColor(Color.red, speed: 0.3f);
             yield return Raelin.TransitionColor(Color.blue);
