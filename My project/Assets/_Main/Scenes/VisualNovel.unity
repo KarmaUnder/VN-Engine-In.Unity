@@ -2408,6 +2408,7 @@ GameObject:
   - component: {fileID: 1317352471}
   - component: {fileID: 1317352472}
   - component: {fileID: 1317352473}
+  - component: {fileID: 1317352474}
   m_Layer: 0
   m_Name: TestCharacters
   m_TagString: Untagged
@@ -2463,9 +2464,22 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1317352469}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 388c724505e4c434b8a42ab77de17270, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  tempFont: {fileID: 0}
+--- !u!114 &1317352474
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1317352469}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 467f70164fbbebd42be2599824d37616, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   tempFont: {fileID: 0}
@@ -3559,7 +3573,7 @@ PrefabInstance:
     - target: {fileID: 7328878815201109943, guid: 6ce7be681f1e4fe4a9b46b9ded5d0cd6,
         type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: -0
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7328878815201109943, guid: 6ce7be681f1e4fe4a9b46b9ded5d0cd6,
         type: 3}

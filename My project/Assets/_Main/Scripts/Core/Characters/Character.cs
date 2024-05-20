@@ -45,6 +45,7 @@ namespace CHARACTERS
         public bool isFacingRight => !facingLeft;
         public bool isFlippling => co_flipping != null;
 
+        public int priority {get; protected set;}
 
         public Animator animator;
 
@@ -251,6 +252,13 @@ namespace CHARACTERS
 
             Debug.Log("Done Moving");
             co_moving = null;
+        }
+
+        public void SetPriority(int priority, bool autoSortCharactersOnUI = true)
+        {
+            this.priority = priority;
+            if(autoSortCharactersOnUI)
+                manager.SortCharacters();
         }
 
         public void SetNameColor(Color color) => config.nameColor = color;
