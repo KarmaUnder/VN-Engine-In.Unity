@@ -14,6 +14,7 @@ namespace CHARACTERS
     {
         private const float UNHIGHLIGHTED_DARKEN_STRENGHT = 0.65f;
         public const bool DEFAULT_ORIENTATION_IS_FACING_LEFT = true;
+        public const string ANIMATION_REFRESH_TRIGGER = "Refresh";
 
         protected bool facingLeft = DEFAULT_ORIENTATION_IS_FACING_LEFT;
         public string name = "";
@@ -259,6 +260,16 @@ namespace CHARACTERS
             this.priority = priority;
             if(autoSortCharactersOnUI)
                 manager.SortCharacters();
+        }
+
+        public void Animate(string animation)
+        {
+            animator.SetTrigger(animation);
+        }
+        public void Animate(string animation, bool state)
+        {
+            animator.SetBool(animation, state);
+            animator.SetTrigger(ANIMATION_REFRESH_TRIGGER);
         }
 
         public void SetNameColor(Color color) => config.nameColor = color;
