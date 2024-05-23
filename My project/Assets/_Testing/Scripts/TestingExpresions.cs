@@ -74,6 +74,8 @@ public class TestExpresions : MonoBehaviour
 
             yield return Raelin.TransitionColor(Color.white);
 
+            Raelin.Animate("Hop", true);
+
 
            yield return null;
     

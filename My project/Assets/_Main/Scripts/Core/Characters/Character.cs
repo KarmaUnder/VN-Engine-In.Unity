@@ -269,6 +269,9 @@ namespace CHARACTERS
         public void Animate(string animation, bool state)
         {
             animator.SetBool(animation, state);
+
+
+            
             animator.SetTrigger(ANIMATION_REFRESH_TRIGGER);
         }
 
