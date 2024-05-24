@@ -76,6 +76,12 @@ public class TestExpresions : MonoBehaviour
 
             Raelin.Animate("Hop", true);
 
+            yield return new WaitForSeconds(1);
+
+            Raelin.Animate("Shiver", true);
+
+
+
 
            yield return null;
     
