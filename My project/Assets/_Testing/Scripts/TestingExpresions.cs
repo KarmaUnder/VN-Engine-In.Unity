@@ -84,8 +84,7 @@ public class TestExpresions : MonoBehaviour
 
             Raelin.Animate("Shiver", false);
 
-
-
+            yield return new WaitForSeconds(1);
 
 
 
